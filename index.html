@@ -25,7 +25,7 @@
       animation: pageFadeIn 1.8s ease-out forwards;
     }
 
-    /* Floating hearts background - fixed & dreamy */
+    /* Floating hearts background */
     .hearts-bg {
       position: fixed;
       top: 0; left: 0;
@@ -43,7 +43,6 @@
       animation: float 20s linear infinite;
     }
 
-    /* Random positions & delays for natural feel */
     .heart-bg:nth-child(1) { left: 8%; top: 10%; animation-delay: 0s; font-size: 2rem; }
     .heart-bg:nth-child(2) { left: 20%; top: 30%; animation-delay: 4s; }
     .heart-bg:nth-child(3) { left: 35%; top: 70%; animation-delay: 8s; font-size: 1.8rem; }
@@ -103,7 +102,6 @@
       opacity: 0;
       transform: translateY(40px);
       animation: slideUpFade 1.6s ease-out 0.4s forwards;
-      position: relative;
     }
 
     .letter h2 {
@@ -142,7 +140,7 @@
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
     }
 
-    /* Timeline Section */
+    /* Timeline */
     .timeline-section {
       margin: 8rem 0 6rem;
       text-align: center;
@@ -166,77 +164,95 @@
       content: '';
       position: absolute;
       width: 4px;
-      background: linear-gradient(to bottom, transparent, #e8b4b0, transparent);
+      background: linear-gradient(to bottom, transparent, #e8b4b0 30%, #ffb6c1 70%, transparent);
       top: 0;
       bottom: 0;
       left: 50%;
       margin-left: -2px;
-      opacity: 0.3;
+      opacity: 0.25;
     }
 
     .timeline-item {
-      padding: 1.5rem 2.5rem;
+      padding: 2rem 2.5rem;
       position: relative;
       width: 50%;
       opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 0.8s ease-out forwards;
+      transform: translateY(60px);
+      transition: all 0.5s ease;
+      animation: fadeInUpTimeline 0.9s ease-out forwards;
     }
+
+    .timeline-item:nth-child(1)  { animation-delay: 0.3s; }
+    .timeline-item:nth-child(2)  { animation-delay: 0.6s; }
+    .timeline-item:nth-child(3)  { animation-delay: 0.9s; }
+    .timeline-item:nth-child(4)  { animation-delay: 1.2s; }
+    .timeline-item:nth-child(5)  { animation-delay: 1.5s; }
+    .timeline-item:nth-child(6)  { animation-delay: 1.8s; }
+    .timeline-item:nth-child(7)  { animation-delay: 2.1s; }
+    .timeline-item:nth-child(8)  { animation-delay: 2.4s; }
+    .timeline-item:nth-child(9)  { animation-delay: 2.7s; }
+    .timeline-item:nth-child(10) { animation-delay: 3.0s; }
+    .timeline-item:nth-child(11) { animation-delay: 3.3s; }
 
     .timeline-item:nth-child(odd) {
       left: 0;
       text-align: right;
-      padding-right: 4rem;
+      padding-right: 5rem;
     }
 
     .timeline-item:nth-child(even) {
       left: 50%;
       text-align: left;
-      padding-left: 4rem;
+      padding-left: 5rem;
     }
-
-    .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-    .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-    .timeline-item:nth-child(4) { animation-delay: 0.8s; }
-    .timeline-item:nth-child(5) { animation-delay: 1s; }
-    .timeline-item:nth-child(6) { animation-delay: 1.2s; }
-    .timeline-item:nth-child(7) { animation-delay: 1.4s; }
-    .timeline-item:nth-child(8) { animation-delay: 1.6s; }
-    .timeline-item:nth-child(9) { animation-delay: 1.8s; }
-    .timeline-item:nth-child(10) { animation-delay: 2s; }
-    .timeline-item:nth-child(11) { animation-delay: 2.2s; }
 
     .timeline-date {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.9rem;
+      font-size: 2.1rem;
       color: #ffb6c1;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
       display: block;
     }
 
     .timeline-content {
-      background: rgba(47, 26, 26, 0.6);
-      padding: 1.8rem 2rem;
+      background: rgba(47, 26, 26, 0.65);
+      padding: 1.6rem 2rem;
       border-radius: 16px;
-      backdrop-filter: blur(4px);
       border: 1px solid rgba(232, 180, 176, 0.2);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .timeline-content::before {
-      content: "♡";
-      color: #ff69b4;
-      font-size: 1.8rem;
-      margin-right: 0.8rem;
+    .timeline-content:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      border-color: #ff69b4;
     }
 
-    /* Special highlight for most important dates */
-    .special {
-      background: rgba(139, 42, 26, 0.7) !important;
-      border: 1px solid #ff69b4 !important;
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.4) !important;
+    .timeline-content:hover::after {
+      content: "💗";
+      position: absolute;
+      font-size: 3rem;
+      color: rgba(255, 105, 180, 0.4);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulseHeart 1.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .special .timeline-content {
+      background: rgba(139, 42, 26, 0.75);
+      border: 1px solid #ff69b4;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.35);
+    }
+
+    .special .timeline-content:hover {
+      transform: translateY(-10px) scale(1.06);
+      box-shadow: 0 0 45px rgba(255, 105, 180, 0.5);
     }
 
     footer {
@@ -253,13 +269,16 @@
     @keyframes floatAndPulse { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.02)} }
     @keyframes slideUpFade { to { opacity:1; transform:translateY(0); } }
     @keyframes gentleBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
-    @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUpTimeline { to { opacity:1; transform:translateY(0); } }
+    @keyframes pulseHeart {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+      50% { transform: translate(-50%, -50%) scale(1.6); opacity: 0.1; }
+    }
 
     @media (max-width: 768px) {
       .timeline::after { left: 40px; }
-      .timeline-item { width: 100%; padding-left: 80px; padding-right: 20px; text-align: left !important; }
-      .timeline-item:nth-child(odd) { left: 0; padding-right: 20px; }
-      .timeline-item:nth-child(even) { left: 0; }
+      .timeline-item { width: 100%; padding-left: 80px !important; padding-right: 20px !important; text-align: left !important; }
+      .timeline-item:nth-child(odd) { padding-right: 20px; }
       h1 { font-size: 4.4rem; }
       .letter { padding: 4rem 2.5rem; }
       .timeline-title { font-size: 3.2rem; }
@@ -268,7 +287,6 @@
 </head>
 <body>
 
-  <!-- Floating hearts background -->
   <div class="hearts-bg">
     <div class="heart-bg">♡</div>
     <div class="heart-bg">♡</div>
@@ -313,59 +331,71 @@
       You are my miracle.<br>Always.
     </div>
 
-    <!-- Our Beautiful Timeline -->
     <div class="timeline-section">
-      <h2 class="timeline-title">Our Journey Together ♡</h2>
+      <h2 class="timeline-title">Our Journey Together 💕</h2>
       
       <div class="timeline">
+
         <div class="timeline-item">
           <span class="timeline-date">Feb 5, 2024</span>
-          <div class="timeline-content">We met on Instagram for the first time ♡</div>
+          <div class="timeline-content">✨ We met on Instagram for the first time</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">Jul 11, 2024</span>
-          <div class="timeline-content">My first birthday with you</div>
+          <div class="timeline-content">🎂 My first birthday with you</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">Aug 1, 2024</span>
-          <div class="timeline-content">I moved to Hyderabad. We planned to meet... but it never happened</div>
+          <div class="timeline-content">🏙️ I moved to Hyderabad. We planned to meet… but it never happened 💔</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">Dec 20, 2024</span>
-          <div class="timeline-content">Your first birthday after we met</div>
+          <div class="timeline-content">🎉 Your first birthday after we met</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">July 11, 2025</span>
-          <div class="timeline-content">My second birthday with you</div>
+          <div class="timeline-content">🎂 My second birthday with you</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">July 18, 2025</span>
-          <div class="timeline-content">I confessed to you</div>
+          <div class="timeline-content">💌 I confessed to you</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">Aug 25, 2025</span>
-          <div class="timeline-content">Mom's birthday. We opened up this day</div>
+          <div class="timeline-content">🎂 Mom's birthday. We opened up this day 🌸</div>
         </div>
-        <div class="timeline-item">
-          <span class="timeline-date special">Sep 7, 2025</span>
-          <div class="timeline-content special">WE ARE FINALLY TOGETHER! ♡</div>
+
+        <div class="timeline-item special">
+          <span class="timeline-date">Sep 7, 2025</span>
+          <div class="timeline-content">💖 WE ARE FINALLY TOGETHER!</div>
         </div>
+
         <div class="timeline-item">
           <span class="timeline-date">Oct 13, 2025</span>
-          <div class="timeline-content">I came to Hyderabad to meet you... but you were sick</div>
+          <div class="timeline-content">🚂 I came to Hyderabad to meet you… but you were sick 😔</div>
         </div>
-        <div class="timeline-item">
-          <span class="timeline-date special">Dec 17, 2025</span>
-          <div class="timeline-content special">WE FINALLY MET! The best day of my life ♡</div>
+
+        <div class="timeline-item special">
+          <span class="timeline-date">Dec 17, 2025</span>
+          <div class="timeline-content">🤍 WE FINALLY MET! The best day of my life</div>
         </div>
-        <div class="timeline-item">
-          <span class="timeline-date special">Present Day</span>
-          <div class="timeline-content special">We are so deep in love... and this is just the beginning ♡</div>
+
+        <div class="timeline-item special">
+          <span class="timeline-date">Present Day</span>
+          <div class="timeline-content">💞 We are so deep in love… and this is just the beginning</div>
         </div>
+
       </div>
     </div>
 
     <footer>Made with every beat of my heart • February 2026</footer>
+
   </div>
 
 </body>
