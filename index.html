@@ -21,8 +21,43 @@
       color: #f5e8e0;
       overflow-x: hidden;
       position: relative;
+    }
+
+    /* Welcome Section - Big Text + Fade on Scroll */
+    .welcome {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 0 1.5rem;
+    }
+
+    .cheeky-hint {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #ffb6c1;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+      animation: gentlePulse 4s ease-in-out infinite;
+    }
+
+    .big-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(4.5rem, 12vw, 10rem);
+      color: #ffccd5;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      line-height: 0.95;
+      opacity: 1;
+      transition: opacity 0.6s ease-out;
+      pointer-events: none;
+    }
+
+    .big-text.faded {
       opacity: 0;
-      animation: pageFadeIn 1.8s ease-out forwards;
     }
 
     /* Floating hearts background */
@@ -61,12 +96,13 @@
       100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
     }
 
-    .container {
+    /* Rest of the content */
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
       max-width: 860px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
-      position: relative;
-      z-index: 2;
     }
 
     header {
@@ -140,7 +176,7 @@
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
     }
 
-    /* Timeline */
+    /* Timeline styles (same as before) */
     .timeline-section {
       margin: 8rem 0 6rem;
       text-align: center;
@@ -270,23 +306,21 @@
     @keyframes slideUpFade { to { opacity:1; transform:translateY(0); } }
     @keyframes gentleBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
     @keyframes fadeInUpTimeline { to { opacity:1; transform:translateY(0); } }
-    @keyframes pulseHeart {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-      50% { transform: translate(-50%, -50%) scale(1.6); opacity: 0.1; }
-    }
+    @keyframes pulseHeart { 0%,100%{transform:translate(-50%,-50%) scale(1); opacity:0.4} 50%{transform:translate(-50%,-50%) scale(1.6); opacity:0.1} }
+    @keyframes gentlePulse { 0%,100%{opacity:0.85} 50%{opacity:0.5} }
 
     @media (max-width: 768px) {
       .timeline::after { left: 40px; }
       .timeline-item { width: 100%; padding-left: 80px !important; padding-right: 20px !important; text-align: left !important; }
       .timeline-item:nth-child(odd) { padding-right: 20px; }
-      h1 { font-size: 4.4rem; }
-      .letter { padding: 4rem 2.5rem; }
-      .timeline-title { font-size: 3.2rem; }
+      .big-text { font-size: clamp(3.8rem, 10vw, 7rem); }
+      .cheeky-hint { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Floating hearts -->
   <div class="hearts-bg">
     <div class="heart-bg">♡</div>
     <div class="heart-bg">♡</div>
@@ -300,8 +334,15 @@
     <div class="heart-bg">♡</div>
   </div>
 
-  <div class="container">
-    
+  <!-- Welcome / Hero Section -->
+  <div class="welcome">
+    <div class="cheeky-hint">Scroll down if you dare to read my heart... 😏</div>
+    <h1 class="big-text" id="welcomeText">My babygirl,<br>You're Here!!</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+
     <header>
       <h1>Happy Valentine's Day <span class="heart">❤️</span></h1>
     </header>
@@ -335,68 +376,74 @@
       <h2 class="timeline-title">Our Journey Together 💕</h2>
       
       <div class="timeline">
-
         <div class="timeline-item">
           <span class="timeline-date">Feb 5, 2024</span>
           <div class="timeline-content">✨ We met on Instagram for the first time</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">Jul 11, 2024</span>
           <div class="timeline-content">🎂 My first birthday with you</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">Aug 1, 2024</span>
           <div class="timeline-content">🏙️ I moved to Hyderabad. We planned to meet… but it never happened 💔</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">Dec 20, 2024</span>
           <div class="timeline-content">🎉 Your first birthday after we met</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">July 11, 2025</span>
           <div class="timeline-content">🎂 My second birthday with you</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">July 18, 2025</span>
           <div class="timeline-content">💌 I confessed to you</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">Aug 25, 2025</span>
           <div class="timeline-content">🎂 Mom's birthday. We opened up this day 🌸</div>
         </div>
-
         <div class="timeline-item special">
           <span class="timeline-date">Sep 7, 2025</span>
           <div class="timeline-content">💖 WE ARE FINALLY TOGETHER!</div>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-date">Oct 13, 2025</span>
           <div class="timeline-content">🚂 I came to Hyderabad to meet you… but you were sick 😔</div>
         </div>
-
         <div class="timeline-item special">
           <span class="timeline-date">Dec 17, 2025</span>
           <div class="timeline-content">🤍 WE FINALLY MET! The best day of my life</div>
         </div>
-
         <div class="timeline-item special">
           <span class="timeline-date">Present Day</span>
           <div class="timeline-content">💞 We are so deep in love… and this is just the beginning</div>
         </div>
-
       </div>
     </div>
 
     <footer>Made with every beat of my heart • February 2026</footer>
-
   </div>
+
+  <script>
+    // Fade out big text on scroll
+    window.addEventListener('scroll', () => {
+      const welcomeText = document.getElementById('welcomeText');
+      const scrollPosition = window.scrollY;
+      const fadeStart = 100;   // when to start fading
+      const fadeUntil = 500;   // when it should be fully gone
+
+      if (scrollPosition <= fadeStart) {
+        welcomeText.style.opacity = 1;
+      } else if (scrollPosition >= fadeUntil) {
+        welcomeText.style.opacity = 0;
+      } else {
+        const opacity = 1 - (scrollPosition - fadeStart) / (fadeUntil - fadeStart);
+        welcomeText.style.opacity = opacity;
+      }
+    });
+  </script>
 
 </body>
 </html>
