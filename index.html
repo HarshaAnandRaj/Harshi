@@ -19,15 +19,68 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #2b0d0d 0%, #3a0f1a 50%, #1a0a14 100%);
       color: #f5e8e0;
-      overflow-x: hidden;
+      overflow: hidden;
+      position: relative;
       opacity: 0;
       animation: pageFadeIn 1.8s ease-out forwards;
+    }
+
+    /* Floating hearts background */
+    .hearts-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .heart-bg {
+      position: absolute;
+      font-size: 2.2rem;
+      color: rgba(255, 182, 193, 0.22); /* soft translucent pink */
+      user-select: none;
+      pointer-events: none;
+      animation: float 18s linear infinite;
+      will-change: transform, opacity;
+    }
+
+    .heart-bg:nth-child(1)  { left: 10%; animation-duration: 22s; animation-delay: 0s; }
+    .heart-bg:nth-child(2)  { left: 22%; animation-duration: 26s; animation-delay: 3s; font-size: 1.8rem; }
+    .heart-bg:nth-child(3)  { left: 35%; animation-duration: 20s; animation-delay: 7s; }
+    .heart-bg:nth-child(4)  { left: 48%; animation-duration: 24s; animation-delay: 1s; font-size: 2.5rem; }
+    .heart-bg:nth-child(5)  { left: 60%; animation-duration: 28s; animation-delay: 5s; }
+    .heart-bg:nth-child(6)  { left: 75%; animation-duration: 19s; animation-delay: 9s; font-size: 1.9rem; }
+    .heart-bg:nth-child(7)  { left: 88%; animation-duration: 23s; animation-delay: 2s; }
+    .heart-bg:nth-child(8)  { left: 15%; animation-duration: 25s; animation-delay: 6s; font-size: 2.1rem; }
+    .heart-bg:nth-child(9)  { left: 40%; animation-duration: 21s; animation-delay: 10s; }
+    .heart-bg:nth-child(10) { left: 65%; animation-duration: 27s; animation-delay: 4s; font-size: 2.3rem; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-15vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     .container {
       max-width: 860px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     header {
@@ -131,9 +184,11 @@
       font-size: 1.25rem;
       padding-bottom: 5rem;
       opacity: 0.8;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Animations */
+    /* Existing animations */
     @keyframes pageFadeIn {
       to { opacity: 1; }
     }
@@ -145,12 +200,8 @@
     }
 
     @keyframes floatAndPulse {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-22px) scale(1.02);
-      }
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-22px) scale(1.02); }
     }
 
     @keyframes slideUpFade {
@@ -171,10 +222,25 @@
       .letter h2 { font-size: 3rem; }
       .signature { font-size: 3.1rem; }
       .letter p { font-size: 1.45rem; }
+      .heart-bg { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg">
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+    <div class="heart-bg">♡</div>
+  </div>
 
   <div class="container">
     
@@ -203,7 +269,7 @@
       <p>Touch your lips…</p>
       <p>And close enough to love you for lifetimes.</p>
 
-      <div class="signature">Yours - Harshi ♡</div>
+      <div class="signature">Yours - Hershey ♡</div>
     </div>
 
     <div class="closing">
