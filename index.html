@@ -23,7 +23,7 @@
       position: relative;
     }
 
-    /* Welcome section (unchanged) */
+    /* Welcome screen with handwriting animation */
     .welcome {
       height: 100vh;
       min-height: 700px;
@@ -40,23 +40,36 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2.2rem;
       color: #ffb6c1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       opacity: 0.85;
       animation: gentlePulse 4s ease-in-out infinite;
     }
 
-    .big-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(4.5rem, 12vw, 10rem);
-      color: #ffccd5;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.7);
-      line-height: 0.95;
-      opacity: 1;
-      transition: opacity 0.6s ease-out;
+    .handwriting-container {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      height: 300px;
     }
 
-    .big-text.faded {
-      opacity: 0;
+    .handwriting-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(5rem, 12vw, 12rem);
+      fill: none;
+      stroke: #ffccd5;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 8000;
+      stroke-dashoffset: 8000;
+      animation: handwriting 6s ease-in-out forwards 1s;
+      text-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    @keyframes handwriting {
+      to {
+        stroke-dashoffset: 0;
+      }
     }
 
     /* Floating hearts */
@@ -95,6 +108,7 @@
       100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
     }
 
+    /* Rest of content */
     .content-wrapper {
       position: relative;
       z-index: 2;
@@ -151,7 +165,26 @@
       margin-bottom: 1.8rem;
       text-align: justify;
       color: #f8e9e4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUpParagraph 1s ease-out forwards;
     }
+
+    .letter p:nth-child(1) { animation-delay: 1.2s; }
+    .letter p:nth-child(2) { animation-delay: 1.4s; }
+    .letter p:nth-child(3) { animation-delay: 1.6s; }
+    .letter p:nth-child(4) { animation-delay: 1.8s; }
+    .letter p:nth-child(5) { animation-delay: 2.0s; }
+    .letter p:nth-child(6) { animation-delay: 2.2s; }
+    .letter p:nth-child(7) { animation-delay: 2.4s; }
+    .letter p:nth-child(8) { animation-delay: 2.6s; }
+    .letter p:nth-child(9) { animation-delay: 2.8s; }
+    .letter p:nth-child(10) { animation-delay: 3.0s; }
+    .letter p:nth-child(11) { animation-delay: 3.2s; }
+    .letter p:nth-child(12) { animation-delay: 3.4s; }
+    .letter p:nth-child(13) { animation-delay: 3.6s; }
+    .letter p:nth-child(14) { animation-delay: 3.8s; }
+    .letter p:nth-child(15) { animation-delay: 4.0s; }
 
     .signature {
       font-family: 'Dancing Script', cursive;
@@ -174,7 +207,7 @@
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
     }
 
-    /* Timeline - fixed for mobile + animations */
+    /* Timeline */
     .timeline-section {
       margin: 8rem 0 6rem;
       text-align: center;
@@ -265,11 +298,6 @@
       box-shadow: 0 0 30px rgba(255, 105, 180, 0.35);
     }
 
-    .special .timeline-content:hover {
-      transform: translateY(-10px) scale(1.06);
-      box-shadow: 0 0 45px rgba(255, 105, 180, 0.5);
-    }
-
     footer {
       text-align: center;
       color: #b08c8c;
@@ -278,29 +306,24 @@
       opacity: 0.8;
     }
 
-    /* Mobile fixes */
+    /* Animations */
+    @keyframes gentlePulse { 0%,100%{opacity:0.85} 50%{opacity:0.5} }
+    @keyframes slideUpFade { to { opacity:1; transform:translateY(0); } }
+    @keyframes gentleBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+    @keyframes fadeInUpParagraph { to { opacity:1; transform:translateY(0); } }
+    @keyframes heartbeat { 0%,100% {transform:scale(1)} 40%{transform:scale(1.14)} 60%{transform:scale(1.08)} }
+    @keyframes floatAndPulse { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.02)} }
+
     @media (max-width: 768px) {
-      .timeline::after {
-        left: 35px;
-      }
-      .timeline-item {
-        width: 100%;
-        padding: 2rem 2rem 2rem 70px;
-        transform: translateX(-50px);
-      }
-      .letter {
-        padding: 2.5rem 1.8rem;
-      }
+      .timeline::after { left: 35px; }
+      .timeline-item { padding: 2rem 2rem 2rem 70px; }
+      .letter { padding: 2.5rem 1.8rem; }
       .letter h2 { font-size: 2.8rem; }
       .letter p { font-size: 1.38rem; line-height: 1.85; margin-bottom: 2rem; }
-      .signature { font-size: 2.5rem; margin-right: 0; }
+      .signature { font-size: 2.5rem; }
       .closing { font-size: 2.2rem; }
       .timeline-title { font-size: 3.2rem; }
-    }
-
-    @media (max-width: 480px) {
-      .timeline-item { padding-left: 65px; }
-      .timeline::after { left: 30px; }
+      .welcome { min-height: 80vh; }
     }
   </style>
 </head>
@@ -319,9 +342,17 @@
     <div class="heart-bg">♡</div>
   </div>
 
+  <!-- Welcome screen with handwriting animation -->
   <div class="welcome">
     <div class="cheeky-hint">Scroll down if you dare to read my heart... 😏</div>
-    <h1 class="big-text" id="welcomeText">My babygirl,<br>You're Here!!</h1>
+
+    <div class="handwriting-container">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet">
+        <text class="handwriting-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+          My babygirl, You're Here!!
+        </text>
+      </svg>
+    </div>
   </div>
 
   <div class="content-wrapper">
@@ -407,12 +438,12 @@
   </div>
 
   <script>
-    // Fade welcome text
+    // Fade welcome text (now less needed because handwriting is the focus)
     window.addEventListener('scroll', () => {
-      const welcomeText = document.getElementById('welcomeText');
+      const welcomeText = document.querySelector('.handwriting-text');
       const scrollPosition = window.scrollY;
-      const fadeStart = 100;
-      const fadeUntil = 500;
+      const fadeStart = 150;
+      const fadeUntil = 600;
       let opacity = 1;
       if (scrollPosition > fadeStart) {
         opacity = Math.max(0, 1 - (scrollPosition - fadeStart) / (fadeUntil - fadeStart));
@@ -420,7 +451,7 @@
       welcomeText.style.opacity = opacity;
     });
 
-    // Timeline: fade line + animate items
+    // Timeline animation (unchanged from previous working version)
     const timeline = document.getElementById('timeline');
     const timelineItems = document.querySelectorAll('.timeline-item');
 
@@ -429,33 +460,19 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             timeline.classList.add('visible');
-
-            // Trigger item animations one by one
             timelineItems.forEach((item, index) => {
               setTimeout(() => {
                 item.classList.add('visible');
               }, 300 + index * 350);
             });
-
             observer.unobserve(timeline);
           }
         });
       },
-      {
-        threshold: 0.15,           // trigger earlier
-        rootMargin: '0px 0px -15% 0px' // better for mobile
-      }
+      { threshold: 0.15, rootMargin: '0px 0px -15% 0px' }
     );
 
     observer.observe(timeline);
-
-    // Fallback: show items if observer fails (rare)
-    setTimeout(() => {
-      if (!timeline.classList.contains('visible')) {
-        timeline.classList.add('visible');
-        timelineItems.forEach(item => item.classList.add('visible'));
-      }
-    }, 5000);
   </script>
 
 </body>
