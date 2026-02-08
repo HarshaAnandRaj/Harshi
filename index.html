@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Digital Love Letter to You ♡</title>
+  <title>My Love Letter to You ♡</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -17,109 +17,150 @@
     body {
       font-family: 'EB Garamond', serif;
       min-height: 100vh;
-      background: linear-gradient(to bottom, #fdf8f4 0%, #fff5f0 100%);
-      color: #1c0f0a;
-      line-height: 1.95;
-      letter-spacing: 0.3px;
-      padding: 2.5rem 1rem;
+      background: linear-gradient(135deg, #fff5f0 0%, #fde8e4 50%, #f9e0e8 100%);
+      color: #2c1810;
+      line-height: 1.92;
+      letter-spacing: 0.4px;
     }
 
     .container {
-      max-width: 840px;
+      max-width: 860px;
       margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    header {
       text-align: center;
+      padding: 3rem 0 2rem;
     }
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 4.4rem;
+      font-size: 5rem;
       color: #a83232;
-      margin: 2.5rem 0 1.5rem;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin-bottom: 0.8rem;
+      text-shadow: 0 4px 12px rgba(168, 50, 50, 0.18);
+      animation: soft-float 8s ease-in-out infinite;
     }
 
     .heart {
       color: #c0392b;
       font-size: 4.8rem;
-      animation: beat 1.5s infinite;
+      animation: heartbeat 1.8s ease-in-out infinite;
     }
 
     .letter {
-      background: #fffdf7 url('https://www.transparenttextures.com/patterns/old-paper.png');
-      background-blend-mode: multiply;
-      border: 1px solid #e8d9c5;
-      border-radius: 10px;
-      padding: 4rem 3rem;
-      max-width: 760px;
-      margin: 3rem auto 4rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1),
-                  inset 0 0 50px rgba(255,248,240,0.65);
-      font-size: 1.48rem;
-      text-align: left;
       position: relative;
+      background: #fffdf9 url('https://www.transparenttextures.com/patterns/old-paper.png');
+      background-blend-mode: multiply;
+      border-radius: 24px;
+      padding: 5rem 4.5rem;
+      box-shadow: 
+        0 20px 50px rgba(0,0,0,0.12),
+        0 30px 80px rgba(168,50,50,0.08),
+        inset 0 0 60px rgba(255,245,240,0.7);
+      border: 1px solid rgba(200, 160, 140, 0.25);
+      margin: 0 auto 4rem;
+      max-width: 780px;
+    }
+
+    .letter::before,
+    .letter::after {
+      content: "♥";
+      position: absolute;
+      color: #c0392b;
+      font-size: 2.2rem;
+      opacity: 0.25;
+      font-family: 'Dancing Script', cursive;
     }
 
     .letter::before {
-      content: "My Dearest Love";
+      top: -1.4rem;
+      left: 2.5rem;
+    }
+
+    .letter::after {
+      bottom: -1.4rem;
+      right: 2.5rem;
+    }
+
+    .letter h2 {
       font-family: 'Dancing Script', cursive;
-      position: absolute;
-      top: -2.6rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #a83232;
-      color: white;
-      padding: 0.7rem 2.4rem;
-      border-radius: 50px;
-      font-size: 2.6rem;
-      white-space: nowrap;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+      font-size: 3.2rem;
+      color: #a83232;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      opacity: 0.92;
     }
 
     .letter p {
-      margin-bottom: 2rem;
+      font-size: 1.52rem;
+      margin-bottom: 1.9rem;
+      text-align: justify;
     }
 
     .signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
+      font-size: 3.4rem;
+      color: #8b2a1a;
       text-align: right;
       margin-top: 4rem;
-      color: #7a2a1a;
+      margin-right: 1rem;
     }
 
-    .message {
-      font-size: 2.5rem;
+    .closing {
+      text-align: center;
+      font-size: 2.4rem;
       color: #a83232;
       font-family: 'Dancing Script', cursive;
-      margin: 4.5rem 0 3rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      margin: 5rem 0 4rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(168, 50, 50, 0.15);
+      border-bottom: 1px solid rgba(168, 50, 50, 0.15);
     }
 
     footer {
-      margin-top: 6rem;
-      color: #6b5a4e;
-      font-size: 1.25rem;
-      font-family: 'EB Garamond', serif;
+      text-align: center;
+      color: #6b4a3f;
+      font-size: 1.2rem;
+      padding-bottom: 4rem;
+      opacity: 0.85;
     }
 
-    @keyframes beat {
+    @keyframes heartbeat {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.13); }
+      50% { transform: scale(1.12); }
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 3.6rem; }
-      .letter { padding: 3rem 2rem; font-size: 1.38rem; }
-      .letter::before { font-size: 2.2rem; top: -2.3rem; }
+    @keyframes soft-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 4.2rem; }
+      .letter { 
+        padding: 4rem 2.5rem; 
+        border-radius: 18px;
+      }
+      .letter h2 { font-size: 2.8rem; }
+      .signature { font-size: 2.9rem; }
+      .letter p { font-size: 1.42rem; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>Happy Valentine's Day <span class="heart">❤️</span></h1>
+    
+    <header>
+      <h1>Happy Valentine's Day <span class="heart">❤️</span></h1>
+    </header>
 
     <div class="letter">
+      
+      <h2>My Dearest Love</h2>
+
       <p>Hello, My love.</p>
       <p>This is something equivalent of my digital love letter to you. Even though, We only entered relationship few months back. The amount of affection and the bond we build was unheard of for me.</p>
       <p>I am recounting our lives before we came into each others and we painted all red and white.</p>
@@ -140,9 +181,12 @@
       <div class="signature">Yours - Hershey ♡</div>
     </div>
 
-    <p class="message">You are my miracle. Always.</p>
+    <div class="closing">
+      You are my miracle.<br>Always.
+    </div>
 
     <footer>Made with all my heart • February 2026</footer>
+
   </div>
 
 </body>
