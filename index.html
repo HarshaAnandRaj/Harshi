@@ -144,6 +144,9 @@
       color: #e8b4b0;
       text-align: center;
       margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease-out 0.8s forwards;
     }
 
     .letter p {
@@ -152,7 +155,27 @@
       margin-bottom: 1.8rem;
       text-align: justify;
       color: #f8e9e4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUpParagraph 1s ease-out forwards;
     }
+
+    /* Staggered paragraph animation */
+    .letter p:nth-child(1) { animation-delay: 1.2s; }
+    .letter p:nth-child(2) { animation-delay: 1.4s; }
+    .letter p:nth-child(3) { animation-delay: 1.6s; }
+    .letter p:nth-child(4) { animation-delay: 1.8s; }
+    .letter p:nth-child(5) { animation-delay: 2.0s; }
+    .letter p:nth-child(6) { animation-delay: 2.2s; }
+    .letter p:nth-child(7) { animation-delay: 2.4s; }
+    .letter p:nth-child(8) { animation-delay: 2.6s; }
+    .letter p:nth-child(9) { animation-delay: 2.8s; }
+    .letter p:nth-child(10) { animation-delay: 3.0s; }
+    .letter p:nth-child(11) { animation-delay: 3.2s; }
+    .letter p:nth-child(12) { animation-delay: 3.4s; }
+    .letter p:nth-child(13) { animation-delay: 3.6s; }
+    .letter p:nth-child(14) { animation-delay: 3.8s; }
+    .letter p:nth-child(15) { animation-delay: 4.0s; }
 
     .signature {
       font-family: 'Dancing Script', cursive;
@@ -175,7 +198,7 @@
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
     }
 
-    /* Timeline */
+    /* Timeline (unchanged) */
     .timeline-section {
       margin: 8rem 0 6rem;
       text-align: center;
@@ -309,7 +332,8 @@
     @keyframes floatAndPulse { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.02)} }
     @keyframes slideUpFade { to { opacity:1; transform:translateY(0); } }
     @keyframes gentleBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
-    @keyframes fadeInUpTimeline { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUpParagraph { to { opacity:1; transform:translateY(0); } }
     @keyframes pulseHeart { 0%,100%{transform:translate(-50%,-50%) scale(1); opacity:0.4} 50%{transform:translate(-50%,-50%) scale(1.6); opacity:0.1} }
     @keyframes gentlePulse { 0%,100%{opacity:0.85} 50%{opacity:0.5} }
 
