@@ -23,7 +23,7 @@
       position: relative;
     }
 
-    /* Welcome screen with handwriting animation */
+    /* Welcome with handwriting */
     .welcome {
       height: 100vh;
       min-height: 700px;
@@ -67,9 +67,7 @@
     }
 
     @keyframes handwriting {
-      to {
-        stroke-dashoffset: 0;
-      }
+      to { stroke-dashoffset: 0; }
     }
 
     /* Floating hearts */
@@ -108,7 +106,6 @@
       100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
     }
 
-    /* Rest of content */
     .content-wrapper {
       position: relative;
       z-index: 2;
@@ -298,11 +295,70 @@
       box-shadow: 0 0 30px rgba(255, 105, 180, 0.35);
     }
 
+    .special .timeline-content:hover {
+      transform: translateY(-10px) scale(1.06);
+      box-shadow: 0 0 45px rgba(255, 105, 180, 0.5);
+    }
+
+    /* Final heartfelt note - full screen */
+    .final-note {
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, rgba(43, 13, 13, 0.9), rgba(26, 10, 20, 0.95));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-note::before {
+      content: "♡";
+      position: absolute;
+      font-size: 20rem;
+      color: rgba(255, 182, 193, 0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .final-note h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      color: #ffccd5;
+      margin-bottom: 2rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-note p {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      line-height: 1.8;
+      max-width: 800px;
+      color: #f8e9e4;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-heart {
+      font-size: 6rem;
+      color: #d9534f;
+      animation: heartbeat 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      position: relative;
+      z-index: 1;
+    }
+
     footer {
       text-align: center;
       color: #b08c8c;
       font-size: 1.25rem;
-      padding: 5rem 0;
+      padding: 5rem 2rem;
       opacity: 0.8;
     }
 
@@ -321,9 +377,8 @@
       .letter h2 { font-size: 2.8rem; }
       .letter p { font-size: 1.38rem; line-height: 1.85; margin-bottom: 2rem; }
       .signature { font-size: 2.5rem; }
-      .closing { font-size: 2.2rem; }
-      .timeline-title { font-size: 3.2rem; }
-      .welcome { min-height: 80vh; }
+      .final-note h2 { font-size: clamp(3rem, 9vw, 5.5rem); }
+      .final-note p { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -342,7 +397,6 @@
     <div class="heart-bg">♡</div>
   </div>
 
-  <!-- Welcome screen with handwriting animation -->
   <div class="welcome">
     <div class="cheeky-hint">Scroll down if you dare to read my heart... 😏</div>
 
@@ -434,13 +488,24 @@
       </div>
     </div>
 
+    <!-- Final heartfelt full-screen note -->
+    <div class="final-note">
+      <h2>Harshi, my everything...</h2>
+      <p>From that first message on Instagram to holding you in my arms on December 17th, every single second with you has felt like a dream I never want to wake from.</p>
+      <p>You turned every hard day into something bearable, every smile into magic, every heartbeat into proof that love like this actually exists.</p>
+      <p>I don't know what tomorrow brings, but I know one thing for sure:</p>
+      <p>I want to spend every tomorrow learning more ways to love you deeper, hold you closer, and remind you that you are my home.</p>
+      <p class="final-heart">❤️</p>
+      <p>Forever yours, in this life and every one after.</p>
+    </div>
+
     <footer>Made with every beat of my heart • February 2026</footer>
   </div>
 
   <script>
-    // Fade welcome text (now less needed because handwriting is the focus)
+    // Fade welcome handwriting text on scroll
     window.addEventListener('scroll', () => {
-      const welcomeText = document.querySelector('.handwriting-text');
+      const handwriting = document.querySelector('.handwriting-text');
       const scrollPosition = window.scrollY;
       const fadeStart = 150;
       const fadeUntil = 600;
@@ -448,10 +513,10 @@
       if (scrollPosition > fadeStart) {
         opacity = Math.max(0, 1 - (scrollPosition - fadeStart) / (fadeUntil - fadeStart));
       }
-      welcomeText.style.opacity = opacity;
+      handwriting.style.opacity = opacity;
     });
 
-    // Timeline animation (unchanged from previous working version)
+    // Timeline animation
     const timeline = document.getElementById('timeline');
     const timelineItems = document.querySelectorAll('.timeline-item');
 
