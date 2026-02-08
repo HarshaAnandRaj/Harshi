@@ -19,60 +19,47 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #2b0d0d 0%, #3a0f1a 50%, #1a0a14 100%);
       color: #f5e8e0;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
       opacity: 0;
       animation: pageFadeIn 1.8s ease-out forwards;
     }
 
-    /* Floating hearts background */
+    /* Floating hearts background - fixed & dreamy */
     .hearts-bg {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: -1;
-      overflow: hidden;
+      z-index: 1;
     }
 
     .heart-bg {
       position: absolute;
-      font-size: 2.2rem;
-      color: rgba(255, 182, 193, 0.22); /* soft translucent pink */
-      user-select: none;
-      pointer-events: none;
-      animation: float 18s linear infinite;
-      will-change: transform, opacity;
+      font-size: 2.3rem;
+      color: rgba(255, 182, 193, 0.18);
+      opacity: 0;
+      animation: float 20s linear infinite;
     }
 
-    .heart-bg:nth-child(1)  { left: 10%; animation-duration: 22s; animation-delay: 0s; }
-    .heart-bg:nth-child(2)  { left: 22%; animation-duration: 26s; animation-delay: 3s; font-size: 1.8rem; }
-    .heart-bg:nth-child(3)  { left: 35%; animation-duration: 20s; animation-delay: 7s; }
-    .heart-bg:nth-child(4)  { left: 48%; animation-duration: 24s; animation-delay: 1s; font-size: 2.5rem; }
-    .heart-bg:nth-child(5)  { left: 60%; animation-duration: 28s; animation-delay: 5s; }
-    .heart-bg:nth-child(6)  { left: 75%; animation-duration: 19s; animation-delay: 9s; font-size: 1.9rem; }
-    .heart-bg:nth-child(7)  { left: 88%; animation-duration: 23s; animation-delay: 2s; }
-    .heart-bg:nth-child(8)  { left: 15%; animation-duration: 25s; animation-delay: 6s; font-size: 2.1rem; }
-    .heart-bg:nth-child(9)  { left: 40%; animation-duration: 21s; animation-delay: 10s; }
-    .heart-bg:nth-child(10) { left: 65%; animation-duration: 27s; animation-delay: 4s; font-size: 2.3rem; }
+    /* Random positions & delays for natural feel */
+    .heart-bg:nth-child(1) { left: 8%; top: 10%; animation-delay: 0s; font-size: 2rem; }
+    .heart-bg:nth-child(2) { left: 20%; top: 30%; animation-delay: 4s; }
+    .heart-bg:nth-child(3) { left: 35%; top: 70%; animation-delay: 8s; font-size: 1.8rem; }
+    .heart-bg:nth-child(4) { left: 50%; top: 20%; animation-delay: 2s; font-size: 2.6rem; }
+    .heart-bg:nth-child(5) { left: 65%; top: 50%; animation-delay: 12s; }
+    .heart-bg:nth-child(6) { left: 80%; top: 80%; animation-delay: 6s; font-size: 2.1rem; }
+    .heart-bg:nth-child(7) { left: 15%; top: 60%; animation-delay: 10s; }
+    .heart-bg:nth-child(8) { left: 90%; top: 40%; animation-delay: 14s; font-size: 1.9rem; }
+    .heart-bg:nth-child(9) { left: 45%; top: 90%; animation-delay: 1s; }
+    .heart-bg:nth-child(10) { left: 70%; top: 15%; animation-delay: 7s; font-size: 2.4rem; }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.7;
-      }
-      90% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-15vh) rotate(360deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.4; }
+      85% { opacity: 0.4; }
+      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
     }
 
     .container {
@@ -80,7 +67,7 @@
       margin: 0 auto;
       padding: 3rem 1.5rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     header {
@@ -105,34 +92,19 @@
     }
 
     .letter {
-      position: relative;
       background: #2f1a1a url('https://www.transparenttextures.com/patterns/old-paper.png');
       background-blend-mode: multiply;
       border-radius: 24px;
       padding: 5.5rem 5rem;
-      box-shadow: 
-        0 25px 60px rgba(0,0,0,0.7),
-        inset 0 0 80px rgba(80,30,30,0.4);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7), inset 0 0 80px rgba(80,30,30,0.4);
       border: 1px solid rgba(180, 100, 90, 0.15);
-      margin: 0 auto 4.5rem;
+      margin: 0 auto 5rem;
       max-width: 780px;
       opacity: 0;
       transform: translateY(40px);
       animation: slideUpFade 1.6s ease-out 0.4s forwards;
+      position: relative;
     }
-
-    .letter::before,
-    .letter::after {
-      content: "♥";
-      position: absolute;
-      color: #d9534f;
-      font-size: 2.4rem;
-      opacity: 0.3;
-      font-family: 'Dancing Script', cursive;
-    }
-
-    .letter::before { top: -1.5rem; left: 3rem; }
-    .letter::after  { bottom: -1.5rem; right: 3rem; }
 
     .letter h2 {
       font-family: 'Dancing Script', cursive;
@@ -140,7 +112,6 @@
       color: #e8b4b0;
       text-align: center;
       margin-bottom: 2.8rem;
-      opacity: 0.95;
     }
 
     .letter p {
@@ -165,64 +136,133 @@
       font-size: 2.6rem;
       color: #e8b4b0;
       font-family: 'Dancing Script', cursive;
-      margin: 5.5rem 0 4.5rem;
+      margin: 5rem 0 6rem;
       padding: 2rem 0;
       border-top: 1px solid rgba(232, 180, 176, 0.18);
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
-      transition: all 0.6s ease;
     }
 
-    .closing:hover {
-      transform: scale(1.04);
-      text-shadow: 0 0 20px rgba(232, 180, 176, 0.6);
-      color: #f0c0c0;
+    /* Timeline Section */
+    .timeline-section {
+      margin: 8rem 0 6rem;
+      text-align: center;
+    }
+
+    .timeline-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.8rem;
+      color: #e8b4b0;
+      margin-bottom: 4rem;
+      opacity: 0.95;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, transparent, #e8b4b0, transparent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      padding: 1.5rem 2.5rem;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 4rem;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+      padding-left: 4rem;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+    .timeline-item:nth-child(5) { animation-delay: 1s; }
+    .timeline-item:nth-child(6) { animation-delay: 1.2s; }
+    .timeline-item:nth-child(7) { animation-delay: 1.4s; }
+    .timeline-item:nth-child(8) { animation-delay: 1.6s; }
+    .timeline-item:nth-child(9) { animation-delay: 1.8s; }
+    .timeline-item:nth-child(10) { animation-delay: 2s; }
+    .timeline-item:nth-child(11) { animation-delay: 2.2s; }
+
+    .timeline-date {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.9rem;
+      color: #ffb6c1;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .timeline-content {
+      background: rgba(47, 26, 26, 0.6);
+      padding: 1.8rem 2rem;
+      border-radius: 16px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(232, 180, 176, 0.2);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .timeline-content::before {
+      content: "♡";
+      color: #ff69b4;
+      font-size: 1.8rem;
+      margin-right: 0.8rem;
+    }
+
+    /* Special highlight for most important dates */
+    .special {
+      background: rgba(139, 42, 26, 0.7) !important;
+      border: 1px solid #ff69b4 !important;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.4) !important;
     }
 
     footer {
       text-align: center;
       color: #b08c8c;
       font-size: 1.25rem;
-      padding-bottom: 5rem;
+      padding: 5rem 0;
       opacity: 0.8;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Existing animations */
-    @keyframes pageFadeIn {
-      to { opacity: 1; }
-    }
+    /* Animations */
+    @keyframes pageFadeIn { to { opacity: 1; } }
+    @keyframes heartbeat { 0%,100% {transform:scale(1)} 40%{transform:scale(1.14)} 60%{transform:scale(1.08)} }
+    @keyframes floatAndPulse { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.02)} }
+    @keyframes slideUpFade { to { opacity:1; transform:translateY(0); } }
+    @keyframes gentleBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+    @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      40% { transform: scale(1.14); }
-      60% { transform: scale(1.08); }
-    }
-
-    @keyframes floatAndPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-22px) scale(1.02); }
-    }
-
-    @keyframes slideUpFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes gentleBreathe {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
+      .timeline::after { left: 40px; }
+      .timeline-item { width: 100%; padding-left: 80px; padding-right: 20px; text-align: left !important; }
+      .timeline-item:nth-child(odd) { left: 0; padding-right: 20px; }
+      .timeline-item:nth-child(even) { left: 0; }
       h1 { font-size: 4.4rem; }
-      .letter { padding: 4.5rem 3rem; border-radius: 20px; }
-      .letter h2 { font-size: 3rem; }
-      .signature { font-size: 3.1rem; }
-      .letter p { font-size: 1.45rem; }
-      .heart-bg { font-size: 1.8rem; }
+      .letter { padding: 4rem 2.5rem; }
+      .timeline-title { font-size: 3.2rem; }
     }
   </style>
 </head>
@@ -249,9 +289,7 @@
     </header>
 
     <div class="letter">
-      
       <h2>My Dearest Love</h2>
-
       <p>Hello, My love.</p>
       <p>This is something equivalent of my digital love letter to you. Even though, We only entered relationship few months back. The amount of affection and the bond we build was unheard of for me.</p>
       <p>I am recounting our lives before we came into each others and we painted all red and white.</p>
@@ -268,7 +306,6 @@
       <p>I want you in reach of my hands..</p>
       <p>Touch your lips…</p>
       <p>And close enough to love you for lifetimes.</p>
-
       <div class="signature">Yours - Hershey ♡</div>
     </div>
 
@@ -276,8 +313,59 @@
       You are my miracle.<br>Always.
     </div>
 
-    <footer>Made with all my heart • February 2026</footer>
+    <!-- Our Beautiful Timeline -->
+    <div class="timeline-section">
+      <h2 class="timeline-title">Our Journey Together ♡</h2>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Feb 5, 2024</span>
+          <div class="timeline-content">We met on Instagram for the first time ♡</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Jul 11, 2024</span>
+          <div class="timeline-content">My first birthday with you</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 1, 2024</span>
+          <div class="timeline-content">I moved to Hyderabad. We planned to meet... but it never happened</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Dec 20, 2024</span>
+          <div class="timeline-content">Your first birthday after we met</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">July 11, 2025</span>
+          <div class="timeline-content">My second birthday with you</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">July 18, 2025</span>
+          <div class="timeline-content">I confessed to you</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 25, 2025</span>
+          <div class="timeline-content">Mom's birthday. We opened up this day</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date special">Sep 7, 2025</span>
+          <div class="timeline-content special">WE ARE FINALLY TOGETHER! ♡</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Oct 13, 2025</span>
+          <div class="timeline-content">I came to Hyderabad to meet you... but you were sick</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date special">Dec 17, 2025</span>
+          <div class="timeline-content special">WE FINALLY MET! The best day of my life ♡</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date special">Present Day</span>
+          <div class="timeline-content special">We are so deep in love... and this is just the beginning ♡</div>
+        </div>
+      </div>
+    </div>
 
+    <footer>Made with every beat of my heart • February 2026</footer>
   </div>
 
 </body>
