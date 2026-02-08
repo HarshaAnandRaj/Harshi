@@ -23,7 +23,7 @@
       position: relative;
     }
 
-    /* Welcome Section */
+    /* Welcome */
     .welcome {
       height: 100vh;
       min-height: 700px;
@@ -100,7 +100,7 @@
       z-index: 2;
       max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 3rem 1rem;
     }
 
     header {
@@ -127,12 +127,12 @@
     .letter {
       background: #2f1a1a url('https://www.transparenttextures.com/patterns/old-paper.png');
       background-blend-mode: multiply;
-      border-radius: 24px;
-      padding: 5.5rem 5rem;
+      border-radius: 20px;
+      padding: 3.5rem 2.5rem;
       box-shadow: 0 25px 60px rgba(0,0,0,0.7), inset 0 0 80px rgba(80,30,30,0.4);
       border: 1px solid rgba(180, 100, 90, 0.15);
       margin: 0 auto 5rem;
-      max-width: 780px;
+      max-width: 100%;
       opacity: 0;
       transform: translateY(40px);
       animation: slideUpFade 1.6s ease-out 0.4s forwards;
@@ -140,32 +140,33 @@
 
     .letter h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.4rem;
+      font-size: 3.2rem;
       color: #e8b4b0;
       text-align: center;
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.5rem;
     }
 
     .letter p {
       font-size: 1.58rem;
-      margin-bottom: 2.1rem;
+      line-height: 1.9;
+      margin-bottom: 1.8rem;
       text-align: justify;
       color: #f8e9e4;
     }
 
     .signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.6rem;
+      font-size: 3.4rem;
       color: #e0a8a0;
       text-align: right;
-      margin-top: 4.5rem;
-      margin-right: 1.5rem;
+      margin-top: 4rem;
+      margin-right: 1rem;
       animation: gentleBreathe 6s ease-in-out infinite;
     }
 
     .closing {
       text-align: center;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       color: #e8b4b0;
       font-family: 'Dancing Script', cursive;
       margin: 5rem 0 6rem;
@@ -182,7 +183,7 @@
 
     .timeline-title {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       color: #e8b4b0;
       margin-bottom: 4rem;
       opacity: 0.95;
@@ -218,7 +219,6 @@
       width: 50%;
       opacity: 0;
       transform: translateY(60px);
-      transition: all 0.5s ease;
       animation: fadeInUpTimeline 0.9s ease-out forwards;
     }
 
@@ -313,13 +313,59 @@
     @keyframes pulseHeart { 0%,100%{transform:translate(-50%,-50%) scale(1); opacity:0.4} 50%{transform:translate(-50%,-50%) scale(1.6); opacity:0.1} }
     @keyframes gentlePulse { 0%,100%{opacity:0.85} 50%{opacity:0.5} }
 
+    /* Mobile optimizations */
     @media (max-width: 768px) {
       .timeline::after { left: 40px; margin-left: 0; }
       .timeline-item { width: 100%; padding-left: 80px !important; padding-right: 20px !important; text-align: left !important; }
       .timeline-item:nth-child(odd) { padding-right: 20px; }
-      .big-text { font-size: clamp(3.8rem, 10vw, 7rem); }
-      .cheeky-hint { font-size: 1.8rem; }
-      .welcome { min-height: 80vh; }
+
+      .letter {
+        padding: 2.5rem 1.8rem;
+        border-radius: 16px;
+      }
+
+      .letter h2 {
+        font-size: 2.8rem;
+      }
+
+      .letter p {
+        font-size: 1.38rem;
+        line-height: 1.85;
+        margin-bottom: 2rem;
+      }
+
+      .signature {
+        font-size: 2.9rem;
+        margin-right: 0;
+      }
+
+      .closing {
+        font-size: 2.2rem;
+      }
+
+      .timeline-title {
+        font-size: 3.2rem;
+      }
+
+      .big-text {
+        font-size: clamp(3.8rem, 10vw, 7rem);
+      }
+
+      .cheeky-hint {
+        font-size: 1.8rem;
+      }
+
+      .welcome {
+        min-height: 80vh;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .letter p {
+        font-size: 1.32rem;
+        line-height: 1.8;
+      }
     }
   </style>
 </head>
@@ -338,7 +384,6 @@
     <div class="heart-bg">♡</div>
   </div>
 
-  <!-- Welcome -->
   <div class="welcome">
     <div class="cheeky-hint">Scroll down if you dare to read my heart... 😏</div>
     <h1 class="big-text" id="welcomeText">My babygirl,<br>You're Here!!</h1>
@@ -353,21 +398,18 @@
     <div class="letter">
       <h2>My Dearest Love</h2>
       <p>Hello, My love.</p>
-      <p>This is something equivalent of my digital love letter to you. Even though, We only entered relationship few months back. The amount of affection and the bond we build was unheard of for me.</p>
-      <p>I am recounting our lives before we came into each others and we painted all red and white.</p>
-      <p>All the bad things we had to endure.. Brought us here.. To this one digital moment that just undo everything before and build us anew.</p>
-      <p>It is and always will be such a miracle to find you among all the people that are alive in this moment and I, For one, Seem to only come alive in your presence, My sweetheart.</p>
-      <p>Greatest is the man who has a woman on his shoulder.. It is not that of a burden. But, A privilege.</p>
-      <p>A privilege to love and be loved.</p>
-      <p>To endure and be endured.</p>
-      <p>To be held up and hold you up.</p>
-      <p>To hold your hand when shit hits the fan.</p>
-      <p>You’re not a burden, My love. You’re a privilege my eyes ever have a blessing to be graced with your beauty and smile.</p>
-      <p>I do not know where this goes and how we will be in the end.</p>
-      <p>But, I do know this.</p>
-      <p>I want you in reach of my hands..</p>
-      <p>Touch your lips…</p>
-      <p>And close enough to love you for lifetimes.</p>
+      <p>This is something equivalent of my digital love letter to you. Even though we only entered this relationship a few months back, the amount of affection and the bond we built was something I never imagined possible.</p>
+      <p>I keep thinking back to our lives before we found each other — before we painted everything red and white.</p>
+      <p>All the difficult things we had to go through… they somehow led us here, to this one beautiful digital moment that wipes away everything before and builds us anew.</p>
+      <p>It will always be a miracle to me that I found you among all the people alive right now — and I only truly feel alive when I'm with you, my sweetheart.</p>
+      <p>The greatest man is the one who has a woman by his side. Not as a burden, but as a privilege.</p>
+      <p>A privilege to love and be loved. To endure and be endured. To lift her up and be lifted. To hold her hand when everything falls apart.</p>
+      <p>You’re not a burden, my love. You’re the greatest privilege my eyes have ever been blessed to see — your beauty, your smile, your heart.</p>
+      <p>I don’t know where this path will take us or how our story ends.</p>
+      <p>But I know this with all certainty:</p>
+      <p>I want you close enough to reach out and touch…</p>
+      <p>to feel your lips…</p>
+      <p>and near enough to love you for lifetimes.</p>
       <div class="signature">Yours - Hershey ♡</div>
     </div>
 
@@ -377,7 +419,7 @@
 
     <div class="timeline-section">
       <h2 class="timeline-title">Our Journey Together 💕</h2>
-      
+
       <div class="timeline" id="timeline">
         <div class="timeline-item">
           <span class="timeline-date">Feb 5, 2024</span>
@@ -430,7 +472,7 @@
   </div>
 
   <script>
-    // 1. Fade welcome text on scroll
+    // Fade welcome text on scroll
     window.addEventListener('scroll', () => {
       const welcomeText = document.getElementById('welcomeText');
       const scrollPosition = window.scrollY;
@@ -445,24 +487,19 @@
       welcomeText.style.opacity = opacity;
     });
 
-    // 2. Fade in timeline line when in view
+    // Fade in timeline line
     const timeline = document.getElementById('timeline');
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             timeline.classList.add('visible');
-            observer.unobserve(timeline); // only trigger once
+            observer.unobserve(timeline);
           }
         });
       },
-      {
-        threshold: 0.1, // start fading when 10% of timeline is visible
-        rootMargin: '0px 0px -20% 0px' // better for mobile
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -20% 0px' }
     );
-
     observer.observe(timeline);
   </script>
 
