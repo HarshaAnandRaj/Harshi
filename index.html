@@ -23,51 +23,69 @@
       position: relative;
     }
 
-    /* Welcome with handwriting */
+    /* Welcome screen (unchanged) */
     .welcome {
       height: 100vh;
-      min-height: 700px;
+      min-height: 800px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       position: relative;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
+      background: radial-gradient(circle at center, rgba(255, 182, 193, 0.08) 0%, transparent 70%);
+    }
+
+    .welcome::before {
+      content: "♡ ♡ ♡";
+      position: absolute;
+      font-size: 12rem;
+      color: rgba(255, 182, 193, 0.05);
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
     }
 
     .cheeky-hint {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.2rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
       color: #ffb6c1;
-      margin-bottom: 2rem;
-      opacity: 0.85;
-      animation: gentlePulse 4s ease-in-out infinite;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards 0.5s;
     }
 
     .handwriting-container {
       position: relative;
-      width: 90%;
-      max-width: 900px;
-      height: 300px;
+      width: 95%;
+      max-width: 1100px;
+      height: 400px;
+      z-index: 1;
     }
 
     .handwriting-text {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(5rem, 12vw, 12rem);
+      font-size: clamp(6rem, 16vw, 16rem);
       fill: none;
       stroke: #ffccd5;
-      stroke-width: 3;
+      stroke-width: 4;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 8000;
-      stroke-dashoffset: 8000;
-      animation: handwriting 6s ease-in-out forwards 1s;
-      text-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      stroke-dasharray: 12000;
+      stroke-dashoffset: 12000;
+      animation: handwriting 8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards 1.2s;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.6));
     }
 
     @keyframes handwriting {
       to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 0.9; }
     }
 
     /* Floating hearts */
@@ -77,33 +95,33 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
     }
 
     .heart-bg {
       position: absolute;
-      font-size: 2.3rem;
-      color: rgba(255, 182, 193, 0.18);
+      font-size: 2.6rem;
+      color: rgba(255, 182, 193, 0.20);
       opacity: 0;
-      animation: float 20s linear infinite;
+      animation: float 22s linear infinite;
     }
 
     .heart-bg:nth-child(1) { left: 8%; animation-delay: 0s; }
-    .heart-bg:nth-child(2) { left: 20%; animation-delay: 4s; }
-    .heart-bg:nth-child(3) { left: 35%; animation-delay: 8s; }
-    .heart-bg:nth-child(4) { left: 50%; animation-delay: 2s; }
-    .heart-bg:nth-child(5) { left: 65%; animation-delay: 12s; }
-    .heart-bg:nth-child(6) { left: 80%; animation-delay: 6s; }
-    .heart-bg:nth-child(7) { left: 15%; animation-delay: 10s; }
-    .heart-bg:nth-child(8) { left: 90%; animation-delay: 14s; }
-    .heart-bg:nth-child(9) { left: 45%; animation-delay: 1s; }
-    .heart-bg:nth-child(10) { left: 70%; animation-delay: 7s; }
+    .heart-bg:nth-child(2) { left: 20%; animation-delay: 5s; }
+    .heart-bg:nth-child(3) { left: 35%; animation-delay: 9s; }
+    .heart-bg:nth-child(4) { left: 50%; animation-delay: 3s; }
+    .heart-bg:nth-child(5) { left: 65%; animation-delay: 13s; }
+    .heart-bg:nth-child(6) { left: 80%; animation-delay: 7s; }
+    .heart-bg:nth-child(7) { left: 15%; animation-delay: 11s; }
+    .heart-bg:nth-child(8) { left: 90%; animation-delay: 15s; }
+    .heart-bg:nth-child(9) { left: 45%; animation-delay: 2s; }
+    .heart-bg:nth-child(10) { left: 70%; animation-delay: 8s; }
 
     @keyframes float {
       0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      15% { opacity: 0.4; }
-      85% { opacity: 0.4; }
-      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+      15% { opacity: 0.45; }
+      85% { opacity: 0.45; }
+      100% { transform: translateY(-140px) rotate(360deg); opacity: 0; }
     }
 
     .content-wrapper {
@@ -204,7 +222,7 @@
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
     }
 
-    /* Timeline */
+    /* Timeline (unchanged) */
     .timeline-section {
       margin: 8rem 0 6rem;
       text-align: center;
@@ -295,12 +313,7 @@
       box-shadow: 0 0 30px rgba(255, 105, 180, 0.35);
     }
 
-    .special .timeline-content:hover {
-      transform: translateY(-10px) scale(1.06);
-      box-shadow: 0 0 45px rgba(255, 105, 180, 0.5);
-    }
-
-    /* Final heartfelt note - full screen */
+    /* Final heartfelt note – short, poetic, emotional */
     .final-note {
       height: 100vh;
       min-height: 800px;
@@ -310,7 +323,7 @@
       align-items: center;
       text-align: center;
       padding: 4rem 2rem;
-      background: linear-gradient(to bottom, rgba(43, 13, 13, 0.9), rgba(26, 10, 20, 0.95));
+      background: linear-gradient(to bottom, rgba(43, 13, 13, 0.92), rgba(26, 10, 20, 0.98));
       position: relative;
       overflow: hidden;
     }
@@ -318,8 +331,8 @@
     .final-note::before {
       content: "♡";
       position: absolute;
-      font-size: 20rem;
-      color: rgba(255, 182, 193, 0.08);
+      font-size: 24rem;
+      color: rgba(255, 182, 193, 0.06);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -328,28 +341,31 @@
 
     .final-note h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-size: clamp(4rem, 12vw, 9rem);
       color: #ffccd5;
       margin-bottom: 2rem;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      text-shadow: 0 12px 40px rgba(0,0,0,0.7);
       position: relative;
       z-index: 1;
     }
 
     .final-note p {
-      font-size: clamp(1.4rem, 4vw, 1.9rem);
-      line-height: 1.8;
-      max-width: 800px;
+      font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+      line-height: 1.7;
+      max-width: 780px;
       color: #f8e9e4;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      opacity: 0.95;
       position: relative;
       z-index: 1;
     }
 
     .final-heart {
-      font-size: 6rem;
+      font-size: 7rem;
       color: #d9534f;
-      animation: heartbeat 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation: heartbeat 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      margin: 1rem 0;
       position: relative;
       z-index: 1;
     }
@@ -377,8 +393,8 @@
       .letter h2 { font-size: 2.8rem; }
       .letter p { font-size: 1.38rem; line-height: 1.85; margin-bottom: 2rem; }
       .signature { font-size: 2.5rem; }
-      .final-note h2 { font-size: clamp(3rem, 9vw, 5.5rem); }
-      .final-note p { font-size: 1.4rem; }
+      .final-note h2 { font-size: clamp(3.5rem, 11vw, 7rem); }
+      .final-note p { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -401,7 +417,7 @@
     <div class="cheeky-hint">Scroll down if you dare to read my heart... 😏</div>
 
     <div class="handwriting-container">
-      <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet">
+      <svg viewBox="0 0 1400 400" preserveAspectRatio="xMidYMid meet">
         <text class="handwriting-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
           My babygirl, You're Here!!
         </text>
@@ -488,22 +504,22 @@
       </div>
     </div>
 
-    <!-- Final heartfelt full-screen note -->
+    <!-- Final heartfelt poetic note -->
     <div class="final-note">
-      <h2>Harshi, my everything...</h2>
-      <p>From that first message on Instagram to holding you in my arms on December 17th, every single second with you has felt like a dream I never want to wake from.</p>
-      <p>You turned every hard day into something bearable, every smile into magic, every heartbeat into proof that love like this actually exists.</p>
-      <p>I don't know what tomorrow brings, but I know one thing for sure:</p>
-      <p>I want to spend every tomorrow learning more ways to love you deeper, hold you closer, and remind you that you are my home.</p>
+      <h2>My Harshi...</h2>
+      <p>You are the quiet miracle I waited lifetimes for.<br>
+      Every scar, every wait, every tear —<br>
+      they all led me straight to you.</p>
       <p class="final-heart">❤️</p>
-      <p>Forever yours, in this life and every one after.</p>
+      <p>In your eyes I found home.<br>
+      In your heartbeat, my forever.</p>
     </div>
 
     <footer>Made with every beat of my heart • February 2026</footer>
   </div>
 
   <script>
-    // Fade welcome handwriting text on scroll
+    // Fade handwriting on scroll
     window.addEventListener('scroll', () => {
       const handwriting = document.querySelector('.handwriting-text');
       const scrollPosition = window.scrollY;
