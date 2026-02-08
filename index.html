@@ -19,6 +19,9 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #2b0d0d 0%, #3a0f1a 50%, #1a0a14 100%);
       color: #f5e8e0;
+      overflow-x: hidden;
+      opacity: 0;
+      animation: pageFadeIn 1.8s ease-out forwards;
     }
 
     .container {
@@ -38,13 +41,14 @@
       color: #e8b4b0;
       margin-bottom: 0.8rem;
       text-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      animation: soft-float 9s ease-in-out infinite;
+      animation: floatAndPulse 10s ease-in-out infinite;
     }
 
     .heart {
       color: #d9534f;
       font-size: 5rem;
-      animation: heartbeat 1.9s ease-in-out infinite;
+      display: inline-block;
+      animation: heartbeat 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
     .letter {
@@ -59,6 +63,9 @@
       border: 1px solid rgba(180, 100, 90, 0.15);
       margin: 0 auto 4.5rem;
       max-width: 780px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUpFade 1.6s ease-out 0.4s forwards;
     }
 
     .letter::before,
@@ -71,15 +78,8 @@
       font-family: 'Dancing Script', cursive;
     }
 
-    .letter::before {
-      top: -1.5rem;
-      left: 3rem;
-    }
-
-    .letter::after {
-      bottom: -1.5rem;
-      right: 3rem;
-    }
+    .letter::before { top: -1.5rem; left: 3rem; }
+    .letter::after  { bottom: -1.5rem; right: 3rem; }
 
     .letter h2 {
       font-family: 'Dancing Script', cursive;
@@ -104,6 +104,7 @@
       text-align: right;
       margin-top: 4.5rem;
       margin-right: 1.5rem;
+      animation: gentleBreathe 6s ease-in-out infinite;
     }
 
     .closing {
@@ -115,6 +116,13 @@
       padding: 2rem 0;
       border-top: 1px solid rgba(232, 180, 176, 0.18);
       border-bottom: 1px solid rgba(232, 180, 176, 0.18);
+      transition: all 0.6s ease;
+    }
+
+    .closing:hover {
+      transform: scale(1.04);
+      text-shadow: 0 0 20px rgba(232, 180, 176, 0.6);
+      color: #f0c0c0;
     }
 
     footer {
@@ -125,22 +133,41 @@
       opacity: 0.8;
     }
 
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.13); }
+    /* Animations */
+    @keyframes pageFadeIn {
+      to { opacity: 1; }
     }
 
-    @keyframes soft-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      40% { transform: scale(1.14); }
+      60% { transform: scale(1.08); }
+    }
+
+    @keyframes floatAndPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-22px) scale(1.02);
+      }
+    }
+
+    @keyframes slideUpFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gentleBreathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
     }
 
     @media (max-width: 640px) {
       h1 { font-size: 4.4rem; }
-      .letter { 
-        padding: 4.5rem 3rem; 
-        border-radius: 20px;
-      }
+      .letter { padding: 4.5rem 3rem; border-radius: 20px; }
       .letter h2 { font-size: 3rem; }
       .signature { font-size: 3.1rem; }
       .letter p { font-size: 1.45rem; }
@@ -176,7 +203,7 @@
       <p>Touch your lips…</p>
       <p>And close enough to love you for lifetimes.</p>
 
-      <div class="signature">Yours - Hershey ♡</div>
+      <div class="signature">Yours - Harshi ♡</div>
     </div>
 
     <div class="closing">
