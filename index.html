@@ -23,7 +23,6 @@
       position: relative;
     }
 
-    /* Welcome section */
     .welcome {
       height: 100vh;
       min-height: 700px;
@@ -59,7 +58,6 @@
       opacity: 0;
     }
 
-    /* Floating hearts */
     .hearts-bg {
       position: fixed;
       top: 0; left: 0;
@@ -174,7 +172,7 @@
 
     .signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.4rem;
+      font-size: 2.8rem;
       color: #e0a8a0;
       text-align: right;
       margin-top: 4rem;
@@ -326,14 +324,14 @@
       .timeline-item {
         width: 100%;
         padding: 2rem 2rem 2rem 80px;
-        transform: translateX(-40px); /* slide from left on mobile */
+        transform: translateX(-40px);
       }
       .letter {
         padding: 2.5rem 1.8rem;
       }
       .letter h2 { font-size: 2.8rem; }
       .letter p { font-size: 1.38rem; line-height: 1.85; margin-bottom: 2rem; }
-      .signature { font-size: 2.9rem; margin-right: 0; }
+      .signature { font-size: 2.5rem; margin-right: 0; }
       .closing { font-size: 2.2rem; }
       .timeline-title { font-size: 3.2rem; }
       .big-text { font-size: clamp(3.8rem, 10vw, 7rem); }
@@ -345,6 +343,7 @@
       .letter p { font-size: 1.32rem; line-height: 1.8; }
       .timeline-item { padding-left: 70px; }
       .timeline::after { left: 35px; }
+      .signature { font-size: 2.3rem; }
     }
   </style>
 </head>
@@ -389,7 +388,7 @@
       <p>I want you close enough to reach out and touch…</p>
       <p>to feel your lips…</p>
       <p>and near enough to love you for lifetimes.</p>
-      <div class="signature">Yours - Hershey ♡</div>
+      <div class="signature">Only yours - Harshi ♡</div>
     </div>
 
     <div class="closing">
@@ -451,7 +450,7 @@
   </div>
 
   <script>
-    // Fade welcome text on scroll
+    // Fade welcome text
     window.addEventListener('scroll', () => {
       const welcomeText = document.getElementById('welcomeText');
       const scrollPosition = window.scrollY;
@@ -464,7 +463,7 @@
       welcomeText.style.opacity = opacity;
     });
 
-    // Timeline line fade + item slide-in animation
+    // Timeline animation
     const timeline = document.getElementById('timeline');
     const timelineItems = document.querySelectorAll('.timeline-item');
 
@@ -477,17 +476,14 @@
             timelineItems.forEach((item, index) => {
               setTimeout(() => {
                 item.classList.add('visible');
-              }, 300 + index * 300); // stagger appearance
+              }, 300 + index * 300);
             });
 
             observer.unobserve(timeline);
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -20% 0px'
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -20% 0px' }
     );
 
     observer.observe(timeline);
